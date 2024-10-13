@@ -1,7 +1,4 @@
-const dotenv = require("dotenv");
-dotenv.config();
-
-const api_key = process.env.API_KEY;
+const api_key = acc43d7c79ffbb49670528c9882155e4;
 let city_name;
 
 let btn = document.getElementById("submit");
