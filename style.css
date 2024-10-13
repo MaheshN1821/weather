@@ -93,7 +93,7 @@ section {
 }
 
 article {
-  width: 240px;
+  width: 254px;
   height: 360px;
   margin-bottom: 40px;
   border-radius: 8px;
@@ -113,7 +113,7 @@ article {
 }
 
 article img {
-  width: 120px;
+  object-fit: contain;
 }
 
 #img_info {
@@ -134,13 +134,71 @@ article #city {
 }
 
 #details .t {
-  padding: 10px;
-  font-weight: 600;
-  font-size: 1.4rem;
+  padding: 0px 0px 10px 0px;
+  font-weight: 500;
+  font-size: 2rem;
 }
 
 #desc {
   text-transform: capitalize;
+  margin: -12px 0px 8px 0px;
+}
+
+#humid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+}
+
+#humid2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 0px 34px 0px;
+  display: none;
+}
+
+.humidBox {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+.humidFont {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.windFont {
+  text-transform: lowercase;
+  font-size: 1rem;
+  margin: 0px 0px 0px 5px;
+  font-weight: 500;
+}
+
+.humidFontText {
+  font-size: 0.8rem;
+  margin: -2px 0px 0px 5px;
+}
+
+.windFontText {
+  font-size: 0.7rem;
+  margin: -2px 0px 0px 5px;
+}
+
+.spacing {
+  margin: -6px 0px 6px 0px;
+}
+
+.humidSpace {
+  margin-left: -18px;
+}
+
+.textStyle {
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 #main_content {
@@ -170,7 +228,7 @@ article #city {
 .city_name {
   text-align: center;
   font-size: 2rem;
-  padding: 10px;
+  padding: 10px 10px 4px 10px;
 }
 
 .others {
@@ -183,7 +241,7 @@ article #city {
 .array {
   width: 780px;
   height: 252px;
-  margin: 26px 0px 0px 16px;
+  margin: 0px 0px 0px 16px;
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -203,6 +261,10 @@ article #city {
   border-radius: 10px;
 }
 
+.space {
+  text-align: center;
+}
+
 .small_card {
   background: linear-gradient(145deg, #0e7fb3a1, #1197d5);
   backdrop-filter: blur(14px) saturate(80%);
@@ -219,11 +281,6 @@ article #city {
   position: relative;
 }
 
-.small_card img {
-  width: 86px;
-  margin: -16px 0px 0px 0px;
-}
-
 .s_details {
   font-size: 1rem;
   text-align: center;
@@ -233,8 +290,20 @@ article #city {
 
 .t,
 .feels_t {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.ftext {
+  font-size: 0.7rem;
   font-weight: 500;
+  margin-top: -4px;
+}
+
+.last {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .one {
@@ -250,7 +319,7 @@ article #city {
 .hide {
   display: none;
   position: absolute;
-  top: 114px;
+  top: 66px;
   font-size: 1rem;
   background-color: #0f82b7e0;
   padding: 2px 20px;
@@ -260,14 +329,31 @@ article #city {
   width: 144px;
 }
 
+.notShown {
+  display: block;
+}
+
 .small_card:hover .one,
 .small_card:hover .hide {
   display: block;
 }
 
+.small_card:hover #humid2 {
+  display: flex;
+}
+
+.small_card:hover #SmallCardMain {
+  margin-bottom: -10px;
+}
+
 .small_card:hover .t,
-.small_card:hover .feels_t {
+.small_card:hover .feels_t,
+.small_card:hover .ftext {
   visibility: hidden;
+}
+
+.small_card:hover .notShown {
+  display: none;
 }
 
 footer {
@@ -296,6 +382,21 @@ footer p {
     overflow: hidden;
   }
 }
+
+@media screen and (min-width: 720px) {
+  ::-webkit-scrollbar {
+    width: 14px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+}
+
 @media only screen and (max-width: 650px) {
   .in {
     width: 80vw;
