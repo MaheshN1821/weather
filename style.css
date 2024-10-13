@@ -141,7 +141,10 @@ article #city {
 
 #desc {
   text-transform: capitalize;
-  margin: -12px 0px 8px 0px;
+  margin: -4px 0px 4px 0px;
+  text-align: center;
+  height: 30px;
+  line-height: 22px;
 }
 
 #humid {
