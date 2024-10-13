@@ -107,14 +107,28 @@ function add_card(city_name, temp, humid, speed, desc, name) {
   let html = `<article>
     <p id="city">${city_name}</p>
             <div id="img_info">
-            <img src="images/${name}.png" alt="img" />
+            <img src="images/${name}.png" alt="img" height="120px" width="120px"/>
             <p id="desc">${desc}</p>
             </div>
             <div id="details">
               <p class="t">${temp}<sup>o</sup>C</p>
-              <p>Humidity : ${humid}%</p>
-              <p>Wind Speed : ${speed}kph</p>
-            </div>
+              <div id="humid">
+                <div class="humidBox">
+                  <img src="images/humidity.png" alt="img" width="32px" height="32px"/>
+                  <div>
+                    <p class="humidFont">${humid}%</p>
+                    <p class="humidFontText">Humidity</p>
+                  </div>
+                </div>
+                <div class="humidBox">
+                  <img src="images/wind.png" alt="img" width="32px" height="32px"/>
+                  <div>
+                    <p class="windFont">${speed}km/h</p>
+                    <p class="windFontText">Wind Speed</p>
+                  </div>
+                </div>
+              </div>
+             </div>
           </article>`;
   document.getElementById("card").innerHTML += html;
 }
@@ -133,13 +147,27 @@ function add_main(
   let html = `<article>
     <p id="city">${city_name}</p>
             <div id="img_info">
-            <img src="images/${name}.png" alt="img" />
+            <img src="images/${name}.png" alt="img" width="120px" height="120px"/>
             <p id="desc">${desc}</p>
             </div>
             <div id="details">
               <p class="t">${temp}<sup>o</sup>C</p>
-              <p>Humidity : ${humid}%</p>
-              <p>Wind Speed : ${speed}kph</p>
+              <div id="humid">
+                <div class="humidBox">
+                  <img src="images/humidity.png" alt="img" width="32px" height="32px"/>
+                  <div>
+                    <p class="humidFont">${humid}%</p>
+                    <p class="humidFontText">Humidity</p>
+                  </div>
+                </div>
+                <div class="humidBox">
+                  <img src="images/wind.png" alt="img" width="32px" height="32px"/>
+                  <div>
+                    <p class="windFont">${speed}km/h</p>
+                    <p class="windFontText">Wind Speed</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>`;
   document.getElementById("attach").innerHTML = html;
@@ -158,12 +186,33 @@ function add_main(
   let commaIndex2 = sun_set_time.indexOf(",");
   let sun_set = sun_set_time.slice(commaIndex2 + 1).trim();
 
+  // let html2 = `<p class="city_name">${city_name}</p>
+  //       <div class="others">
+  //         <span class="temp">Temperature : ${temp}<sup>o</sup>C</span>
+  //         <span class="feels">Feels like : ${temp_feels_like}<sup>o</sup>C</span>
+  //         <span>Sunrise : ${sun_rise}</span>
+  //         <span>Sunset : ${sun_set}</span>
+  //       </div>
+  //       <div class="array"></div>`;
+
   let html2 = `<p class="city_name">${city_name}</p>
         <div class="others">
-          <span class="temp">Temperature : ${temp}<sup>o</sup>C</span>
-          <span class="feels">Feels like : ${temp_feels_like}<sup>o</sup>C</span>
-          <span>Sunrise : ${sun_rise}</span>
-          <span>Sunset : ${sun_set}</span>
+          <span class="space">
+            <span class="textStyle">${temp}<sup>o</sup>C</span>
+            <div class="spacing">Temperature</div>
+          </span>
+          <span class="space">
+            <span class="textStyle">${temp_feels_like}<sup>o</sup>C</span>
+            <div class="spacing">Feels like</div>
+          </span>
+          <span class="space">
+            <span class="textStyle">${sun_rise}</span>
+            <div class="spacing">Sunrise</div>
+          </span>
+          <span class="space">
+            <span class="textStyle">${sun_set}</span>
+            <div class="spacing">Sunset</div>
+          </span>
         </div>
         <div class="array"></div>`;
 
@@ -236,15 +285,38 @@ function add_small_card(
   final_date,
   time_final
 ) {
-  let html2 = `<div class="small_card">
+  let html2 = `<div class="small_card"> 
             <p class="hide">${desc}</p>
-            <img src="images/${name}.png" alt="img" />
+            <img src="images/${name}.png" alt="img" width="86px" id="SmallCardMain"/>
             <div class="s_details">
-              <p>${final_date}</p>
-              <p>${time_final}</p>
-              <p class="t">Temperature : ${temp}<sup>o</sup>C</p>
-              <p class="feels_t">Feels Like : ${temp_feels_like}<sup>o</sup>C</p>
-              <p class="one">Humidity : ${humid}%<br />Wind Speed : ${speed}kph</p>
+              <p class="notShown">${final_date}</p>
+              <p class="notShown">${time_final}</p>
+              <div class="last">
+                <span style="margin:2px">
+                  <p class="t">${temp}<sup>o</sup>C</p>
+                  <p class="ftext">Temperature</p>
+                </span>
+                <span style="margin:2px">
+                  <p class="feels_t">${temp_feels_like}<sup>o</sup>C</p>
+                  <p class="ftext">Feels Like</p>
+                </span>
+              </div>
+              <div id="humid2">
+                <div class="humidBox">
+                  <img src="images/humidity.png" alt="img" width="36px" height="32px"/>
+                  <div class="humidSpace">
+                    <p class="humidFont">${humid}%</p>
+                    <p class="humidFontText">Humidity</p>
+                  </div>
+                </div>
+                <div class="humidBox">
+                  <img src="images/wind.png" alt="img" width="36px" height="36px"/>
+                  <div class="humidSpace">
+                    <p class="windFont">${speed}km/h</p>
+                    <p class="windFontText">Wind Speed</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>`;
 
